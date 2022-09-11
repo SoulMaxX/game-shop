@@ -1,9 +1,6 @@
 exports.getHome = (req,res)=> {
-
-
     res.status(200).render('base',{
-        title: 'Store'
-    }) 
-        
-    
-}
+        title: 'Game Shop'
+    });    
+};
+

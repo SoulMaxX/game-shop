@@ -4,7 +4,6 @@ const AppError = require('../utils/appError');
 
 exports.getAllItems = async (req, res, next) => {
     const items = await Item.find().select('-__v')
-    console.log(items);
 
     res.status(200).json({
         status: 'success',
