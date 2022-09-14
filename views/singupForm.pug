@@ -1,0 +1,50 @@
+extend base
+
+block content 
+    body(class="text-center")
+        .container
+            .row.justify-content-md-center
+                .col-md-4
+                    h2 SingUp
+                    form.form-singup(class="needs-validation" novalidate)
+                        .mb-1
+                            label(for="email") Email 
+                            input(type="email", id="email", class="form-control",placeholder="name@example.com", required)
+                            .invalid-feedback Please provide a Email 
+                        .mb-1
+                            label(for="password") Password
+                            input(type="password", id="password", class="form-control",minlength='8', required) 
+                            .invalid-feedback Please provide a Password 
+                        .mb-1
+                            label(for="confirm-password") ConfirmPassword
+                            input(type="password", id="confirm-password", class="form-control", minlength='8',required) 
+                            .invalid-feedback Please provide a ConfirmPassword 
+                        .mb-1
+                            label(for="firstname") Firstname
+                            input(type="text",id ="firstname", class="form-control", aria-describedby= "firstname" ,required)
+                            .invalid-feedback Please provide a Firstname 
+
+                        .mb-1
+                            label(for="lastname") Lastname
+                            input(type="text",id ="lastname", class="form-control", required)
+                            .invalid-feedback Please provide a Lastname 
+                        .mb-1
+                            label(for="age") Age
+                            input(type="number", id="age",class="form-control",required )
+                            .invalid-feedback Please provide a Age
+                        .mb-1
+                            label(for="address") Address
+                            input(type="text",id ="address", class="form-control", required)
+                            .invalid-feedback Please provide a Address 
+                        .mb-1
+                            label(for="zipcode") Zipcode
+                            input(type="text",id ="zipcode", class="form-control", required)
+                            .invalid-feedback Please provide a Zipcode 
+                        .mb-1
+                            label(for="phone") PhoneNumber
+                            input(type="text",id ="phone", class="form-control", required)
+                            .invalid-feedback Please provide a PhoneNumber                        
+                        .mb-1
+                            button(type="submit") Submit
+
+    script(src="/js/singup.js")

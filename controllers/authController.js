@@ -12,9 +12,11 @@ const singToken = id => {
 const createToken = async (user, statusCode, res) => {
     const token = singToken(user.id)
 
-    res.cookie('jwt', token,{expires: new Date(
-        Date.now() + 7 * 24 * 60 * 60 * 1000
-      ),httpOnly: true})
+    res.cookie('jwt', token, {
+        expires: new Date(
+            Date.now() + 7 * 24 * 60 * 60 * 1000
+        ), httpOnly: true
+    })
 
     res.status(statusCode).json({
         status: 'success',
@@ -22,6 +24,11 @@ const createToken = async (user, statusCode, res) => {
         data: { user }
     })
 
+}
+
+exports.singUp = async (req, res, next) => {
+    const user = new User.create(req.body)
+    createToken(user, 201, res)
 }
 
 exports.login = async (req, res, next) => {
@@ -72,11 +79,11 @@ exports.protect = catchAsync(async (req, res, next) => {
     next();
 })
 
-exports.logout = (req,res) => {
-    res.cookie('jwt','',{expires: new Date(Date.now() + 10 * 1000),httpOnly: true})
+exports.logout = (req, res) => {
+    res.cookie('jwt', '', { expires: new Date(Date.now() + 10 * 1000), httpOnly: true })
     console.log(Date.now())
 
     res.status(200).json({
-        status:'success'
+        status: 'success'
     })
 }

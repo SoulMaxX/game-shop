@@ -1,0 +1,27 @@
+extends base
+
+block content
+
+    body(class="text-center")
+        
+        main
+            .container
+                .row.justify-content-md-center
+                    .col-md-4
+                        form.form-login
+                            img(class="mb-4" src="../img/logo.jpg" alt="" width="100%" )
+                            h1(class="h3 mb-3") Please login
+
+                            div(class="mb-3")
+                                input(type="email" class="form-control" id="email" placeholder="name@example.com")
+                                label(for="floatingInput") Email address
+                            
+                            div(class="mb-3")
+                                input(type="password" class="form-control" id="password" placeholder="Password")
+                                label(for="floatingPassword") Password
+                                        
+                            button(class="btn btn-lg btn-primary" type="submit") Sign in          
+
+
+
+    script(src="/js/login.js")

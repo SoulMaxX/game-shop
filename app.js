@@ -18,11 +18,18 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
 
+app.use((req,res,next) => {
+    console.log(req.cookies);
+    next();
+})
+
 app.use('/', viewRouter);
 app.use('/api/items', itemRouter);
 app.use('/api/users', userRouter);
 
 dotenv.config({ path: './config.env' });
+
+
 
 
 app.use((err, req, res, next) => {
