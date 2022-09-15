@@ -1,0 +1,15 @@
+extends base
+
+block content
+    .container
+        .row
+            each console in items
+                .col-sm-4               
+                    .card
+                        .card-body 
+                            h5.card-title= console.name
+                            img.img-item(src=`img/${console.image}`, alt="image-console" )
+                            p.text-end= `Price ${console.price} THB`
+                            a.buy(class="btn btn-light" href="#" type="button") buy 
+            
+            

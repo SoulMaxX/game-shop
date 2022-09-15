@@ -32,7 +32,8 @@ const singup = async (email,password,passwordConfirm,firstname,lastname,age,addr
          console.log(res);
          window.location.assign('/')
      }catch(err){
-         console.log(err.response.data);
+      alert(err.response.data.data);
+         console.log(err);
      }
 }
 

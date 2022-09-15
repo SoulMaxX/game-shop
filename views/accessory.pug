@@ -1,0 +1,15 @@
+extends base
+
+block content
+    .container
+        .row
+            each accessory in items
+                .col-sm-4               
+                    .card
+                        .card-body 
+                            h5.card-title= accessory.name
+                            img.img-item(src=`img/${accessory.image}`, alt="image-accessory" )
+                            p.text-end= `Price ${accessory.price} THB`
+                            a.buy(class="btn btn-light" href="#" type="button") buy 
+            
+            

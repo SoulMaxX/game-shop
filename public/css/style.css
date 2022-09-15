@@ -2,3 +2,19 @@ body{
     background-color:blanchedalmond;
 }
 
+.card{
+margin: 10px 0px;
+}
+
+.buy {
+ background-color: rgb(184, 184, 11);
+ border-color:rgb(184, 184, 11) ;
+ border-radius: 40%;
+ padding: 10px 20px;
+ float: right;
+}
+
+.img-item {
+ width:380px;
+ height: 300px;
+}

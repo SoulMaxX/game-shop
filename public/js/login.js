@@ -1,3 +1,4 @@
+
 const login = async (email,password) => {
    console.log(email,password);
     try{
@@ -11,9 +12,17 @@ const login = async (email,password) => {
             }
         });
         console.log(res);
-        window.location.assign('/')
+        if(res.data.status == 'success'){
+            alert('Logged in successfully')           
+            window.location.assign('/')
+        }
     }catch(err){
-        console.log(err.response.data);
+
+        // document.querySelector('body').insertAdjacentHTML('afterbegin',
+        // `<div class="alert alert-danger">${err.response.data.message} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> </div> `)
+
+        alert(err.response.data.message);
+        console.log((err.response))
     }
 }
 
