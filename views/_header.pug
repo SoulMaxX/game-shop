@@ -14,14 +14,13 @@
         li
           a(href="#" class="nav-link px-2 link-secondary") About
      
-      if !user
-        .col-md-3.text-end
+      .col-md-3.text-end.user
+        if user
+          a(href="" type="button" class="btn btn-primary")= user.firstname 
+          a.form-logout(href="/logout" type="button" class="btn btn-outline-primary me-2") Logout
+        else 
           a(href="/login" type="button" class="btn btn-outline-primary me-2") Login
           a(href="/singup" type="button" class="btn btn-primary") Sign-up
-      else 
-        //- a(href="")= user.name 
-        a(href="#" type="button" class="btn btn-outline-primary me-2") Logout
-       
 
       
 

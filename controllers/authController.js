@@ -81,9 +81,33 @@ exports.protect = catchAsync(async (req, res, next) => {
 
 exports.logout = (req, res) => {
     res.cookie('jwt', '', { expires: new Date(Date.now() + 10 * 1000), httpOnly: true })
-    console.log(Date.now())
+    // console.log(Date.now())
 
     res.status(200).json({
         status: 'success'
     })
 }
+
+exports.isLoggedIn = (async (req, res, next) => {
+    if (req.cookies.jwt) {
+        try{
+        //1.verify token
+        const decoded = await jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
+        //2.Check if user still exist
+        const currentUser = await User.findById(decoded.id);
+        if (!currentUser) {
+            return next();
+        };
+        //3.Check if user changed password after the token was issued
+        // if (currentUser.changedPasswordAfter(decoded.iat)) {
+        //     return next();
+        // };
+        //THERE is a logged in user
+        res.locals.user = currentUser;
+        return next();
+    }catch(err){
+        return next();
+    }
+    }
+    next();
+});
