@@ -42,3 +42,10 @@ exports.getAccessory = async(req,res) => {
         items
     })
 }
+
+exports.getCart= async(req,res)=> {
+
+    res.status(200).render('cart',{
+        title: 'Cart'
+    })
+}

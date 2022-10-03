@@ -3,13 +3,14 @@ extends base
 block content
     .container
         .row
-            each console in items
+            h1.text-center Console
+            each item in items
                 .col-sm-4               
-                    .card
-                        .card-body 
-                            h5.card-title= console.name
-                            img.img-item(src=`img/${console.image}`, alt="image-console" )
-                            p.text-end= `Price ${console.price} THB`
-                            a.buy(class="btn btn-light" href="#" type="button") buy 
-            
+                    .card.item-card 
+                        .card-body
+                            h5.card-title= item.name
+                            //- p.item(id='item-id')= item.id
+                            img.img-item(src=`img/${item.image}`, alt="image-console" )
+                            p.text-end= `Price ${item.price} THB`
+                            button.buy(class="btn btn-light") Add To Cart 
             

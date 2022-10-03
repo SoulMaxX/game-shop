@@ -3,13 +3,16 @@ extends base
 block content
     .container
         .row
-            each game in items
+            h1.text-center Game
+            each item in items
                 .col-sm-4               
                     .card
                         .card-body 
-                            h5.card-title= game.name
-                            img.img-item(src=`img/${game.image}`, alt="image-game" )
-                            p.text-end= `Price ${game.price} THB`
-                            a.buy(class="btn btn-light" href="#" type="button") buy 
+                            h5.card-title= item.name
+                            //- p(name='item-id')= item.id
+                            img.img-item(src=`img/${item.image}`, alt="image-game" )
+                            p.text-end= `Price ${item.price} THB`
+                            button.buy(class="btn btn-light") buy 
             
-            
+
+
